@@ -1,5 +1,9 @@
 <?php
 
+// 'import' the Controllers
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ToDoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +20,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+/**
+ * This way is not working anymore in new version of Laravel, so instead of it use the example below the comment section.
+ * Route::get('todos', 'ToDoController@index');
+ */
+
+Route::get('todo', [ToDoController::class, 'index']);
+
+Route::get('about', [AboutController::class, 'index']);
+
+Route::get('contact', [ContactController::class, 'index']);
