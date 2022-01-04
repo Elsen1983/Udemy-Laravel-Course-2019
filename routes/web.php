@@ -23,7 +23,7 @@ Route::get('/', function () {
 
 /**
  * This way is not working anymore in new version of Laravel, so instead of it use the example below the comment section.
- * Route::get('todos', 'ToDoController@index');
+ * Route::get('todo', 'ToDoController@index'); --> Route::get('todo', [ToDoController::class, 'index']);
  */
 
 Route::get('todo', [ToDoController::class, 'index']);
