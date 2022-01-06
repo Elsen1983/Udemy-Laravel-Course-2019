@@ -20,7 +20,15 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <h1>Contact Page</h1>
+
+        <h1>Todo Selected</h1>
+
+        <div>
+            {{ $todo->name }}
+        </div>
+
+
+        <br>
         <h3><a href="/">Landing Page</a></h3>
         <script src="" async defer></script>
     </body>
