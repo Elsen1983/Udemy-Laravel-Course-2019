@@ -14,7 +14,7 @@
                     <a href="/todo">ToDo page</a>
                 </h3>
                 <h3>
-                    <a href="/about">About page</a>
+                    <a href="/add-todo">Create Todo</a>
                 </h3>
                 <h3>
                     <a href="/contact">Contact page</a>

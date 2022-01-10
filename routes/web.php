@@ -26,8 +26,13 @@ Route::get('/', function () {
  * Route::get('todo', 'ToDoController@index'); --> Route::get('todo', [ToDoController::class, 'index']);
  */
 
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
 Route::get('todo', [ToDoController::class, 'index']);
 Route::get('todo/{todo}', [ToDoController::class, 'show']);
+Route::get('add-todo', [ToDoController::class, 'create']);
+Route::get('save-todo', [ToDoController::class, 'save']);
+
 
 
 Route::get('about', [AboutController::class, 'index']);
@@ -35,9 +40,3 @@ Route::get('about', [AboutController::class, 'index']);
 Route::get('contact', [ContactController::class, 'index']);
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -40,7 +40,7 @@
                 <div class="navbar-nav">
                     <a href="/" class="nav-item nav-link active">Home</a>
                     <a href="/todo" class="nav-item nav-link">ToDo</a>
-                    <a href="/about" class="nav-item nav-link">About</a>
+                    <a href="/add-todo" class="nav-item nav-link">Create ToDo</a>
                     <a href="/contact" class="nav-item nav-link">Contact</a>
                 </div>
             </div>
