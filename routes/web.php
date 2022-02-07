@@ -1,10 +1,10 @@
 <?php
 
 // 'import' the Controllers
-use App\Http\Controllers\AboutController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\ToDoController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ToDo\ToDoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,17 +26,12 @@ Route::get('/', function () {
  * Route::get('todo', 'ToDoController@index'); --> Route::get('todo', [ToDoController::class, 'index']);
  */
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+// Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('todo', [ToDoController::class, 'index']);
 Route::get('todo/{todo}', [ToDoController::class, 'show']);
 Route::get('add-todo', [ToDoController::class, 'create']);
-Route::get('save-todo', [ToDoController::class, 'save']);
+Route::post('save-todo', [ToDoController::class, 'save']);
 
-
-
-Route::get('about', [AboutController::class, 'index']);
-
-Route::get('contact', [ContactController::class, 'index']);
 
 Auth::routes();

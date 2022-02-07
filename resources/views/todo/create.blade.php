@@ -15,16 +15,16 @@
                     </div>
                     <div class="card-body">
                         <form action="/save-todo" method="POST">
-                        <div class="form-group py-2">
-                            <input type="text" class="form-control" name="name" placeholder="Name">
-                        </div>
-                        <div class="form-group py-2">
-                            <textarea name="description" placeholder="Description" cols="5" rows="5" class="form-control"></textarea>
-                        </div>
-                        <div class="form-group py-2">
-                            <button class="btn btn-success">Add Todo</button>
-                        </div>
-
+                            @csrf
+                            <div class="form-group py-2">
+                                <input type="text" class="form-control" name="name" placeholder="Name">
+                            </div>
+                            <div class="form-group py-2">
+                                <textarea name="description" placeholder="Description" cols="5" rows="5" class="form-control"></textarea>
+                            </div>
+                            <div class="form-group py-2">
+                                <button type="submit" class="btn btn-success">Add Todo</button>
+                            </div>
                         </form>
                     </div>
 

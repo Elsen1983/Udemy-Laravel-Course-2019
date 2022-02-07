@@ -38,10 +38,8 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav">
-                    <a href="/" class="nav-item nav-link active">Home</a>
                     <a href="/todo" class="nav-item nav-link">ToDo</a>
                     <a href="/add-todo" class="nav-item nav-link">Create ToDo</a>
-                    <a href="/contact" class="nav-item nav-link">Contact</a>
                 </div>
             </div>
         </div>
