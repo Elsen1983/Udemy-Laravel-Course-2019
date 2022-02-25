@@ -14,6 +14,18 @@
                         Create New Todo
                     </div>
                     <div class="card-body">
+                        @if($errors->any())
+                            <div class="alert alert-danger">
+                                <u class="list-group">
+                                    @foreach($errors->all() as $error)
+                                        <li class="list-group-item">
+                                            {{ $error }}
+                                        </li>
+                                    @endforeach
+                                </u>
+                            </div>
+                        @endif
+
                         <form action="/save-todo" method="POST">
                             @csrf
                             <div class="form-group py-2">

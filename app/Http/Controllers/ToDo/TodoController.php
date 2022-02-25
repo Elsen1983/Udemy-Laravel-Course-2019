@@ -32,8 +32,15 @@ class TodoController extends Controller
 
     public function save(){
 
+        $this->validate(request(), [
+            'name'=>'required|min:6|max:12',
+            'description'=>'required'
+        ]);
+
         $data = request()->all();
 
+        //create a new Todo, and assign all the data from the request into that
+        //must match all the columns in the db table
         $todo = new Todo();
         $todo->name = $data['name'];
         $todo->description = $data['description'];
@@ -41,8 +48,11 @@ class TodoController extends Controller
 
         // dd($todo->all());
 
+        //finally we save them into the database
         $todo->save();
         // dd($todo);
+
+        // redirect the route back to the todo view/page
         return redirect('/todo');
 
     }
