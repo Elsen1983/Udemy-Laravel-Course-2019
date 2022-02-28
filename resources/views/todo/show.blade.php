@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-   Todo:  {{ $todo->name }}
+    Todo:  {{ $todo->name }}
 @endsection
 
 @section('content')
@@ -25,7 +25,8 @@
                     {{ $todo->id === 1 ? "Yes" : "No" }}
                 </div>
             </div>
-            <br>
+            <a href="/todo/{{ $todo->id }}/edit" class="btn btn-info w-100">Edit ToDo</a>
+            <br><br>
             <h5><a href="/todo">Back to Todos</a></h5>
         </div>
     </div>

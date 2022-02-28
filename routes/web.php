@@ -33,5 +33,10 @@ Route::get('todo/{todo}', [ToDoController::class, 'show']);
 Route::get('add-todo', [ToDoController::class, 'create']);
 Route::post('save-todo', [ToDoController::class, 'save']);
 
+//for get edit view
+Route::get('todo/{todo}/edit', [TodoController::class, 'edit']);
+//for send the updated form values from edit view
+Route::post('todo/{todo}/update-todo', [ToDoController::class, 'update']);
+
 
 Auth::routes();

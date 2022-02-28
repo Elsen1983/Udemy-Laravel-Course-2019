@@ -1,0 +1,50 @@
+@extends('layouts.app')
+
+@section('title')
+    Create Todo
+@endsection
+
+@section('content')
+    <div class="container">
+        <h1 class="text-center my-5">Create Todo</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card card-default">
+                    <div class="card-header">
+                        Edit ToDo
+                    </div>
+                    <div class="card-body">
+                        @if($errors->any())
+                            <div class="alert alert-danger">
+                                <u class="list-group">
+                                    @foreach($errors->all() as $error)
+                                        <li class="list-group-item">
+                                            {{ $error }}
+                                        </li>
+                                    @endforeach
+                                </u>
+                            </div>
+                        @endif
+
+                        <form action="/todo/{{$todo->id}}/update-todo" method="POST">
+                            @csrf
+                            <div class="form-group py-2">
+                                <input type="text" class="form-control" name="name" placeholder="Name" value="{{ $todo->name }}">
+                            </div>
+                            <div class="form-group py-2">
+                                <textarea name="description" placeholder="Description" cols="5" rows="5" class="form-control" value="">{{ $todo->description }}</textarea>
+                            </div>
+                            <div class="form-group py-2">
+                                <button type="submit" class="btn btn-success">Update</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+                <br>
+                <h5 class=""><a href="/">Landing Page</a></h5>
+            </div>
+        </div>
+    </div>
+
+@endsection

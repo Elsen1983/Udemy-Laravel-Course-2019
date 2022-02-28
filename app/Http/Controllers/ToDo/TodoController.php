@@ -20,7 +20,6 @@ class TodoController extends Controller
     }
 
     public function show($todoId){
-        //dd($todoId);
         $todo = Todo::find($todoId);
         return view('todo.show')->with('todo', $todo);
     }
@@ -33,7 +32,7 @@ class TodoController extends Controller
     public function save(){
 
         $this->validate(request(), [
-            'name'=>'required|min:6|max:12',
+            'name'=>'required|min:6|max:24',
             'description'=>'required'
         ]);
 
@@ -55,5 +54,36 @@ class TodoController extends Controller
         // redirect the route back to the todo view/page
         return redirect('/todo');
 
+    }
+
+    public function edit($todoId){
+        //find the specific data in the database (using the passed $todoId for it) by find() method
+        $todo = Todo::find($todoId);
+        return view('todo.edit')->with('todo', $todo);
+    }
+
+    //Update function for form elements
+    //$todoId is passed trough the request
+    public function update($todoId){
+        //validate the form elements data
+        $this->validate(request(), [
+            'name'=>'required|min:6|max:24',
+            'description'=>'required'
+        ]);
+        //get the validated data from the form
+        $data = request()->all();
+
+        //find the specific data in the database (using the passed $todoId for it) by find() method
+        $todo = Todo::find($todoId);
+
+        //change the selected fields values from the database by the values got from the form
+        $todo->name = $data['name'];
+        $todo->description = $data['description'];
+
+        //save the updated data back to the database
+        $todo->save();
+
+        //redirect the page to todo-page
+        return redirect('/todo');
     }
 }
