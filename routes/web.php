@@ -44,3 +44,7 @@ Route::get('todo/{todo}/deleteByRMB', [TodoController::class, 'destroyWithRouteM
 
 
 Auth::routes();
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
