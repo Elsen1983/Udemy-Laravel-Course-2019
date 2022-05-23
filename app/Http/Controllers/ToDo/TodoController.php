@@ -53,6 +53,10 @@ class TodoController extends Controller
 
         //finally we save them into the database
         $todo->save();
+
+        //  send a flash message to front-end when the save operation is done
+        $message = $message = 'Todo (' . $todo->name . ') saved successfully.';
+        session()->flash('success', $message);
         // dd($todo);
 
         // redirect the route back to the todo view/page
@@ -98,6 +102,10 @@ class TodoController extends Controller
         //save the updated data back to the database
         $todo->save();
 
+        //  send a flash message to front-end when the update+save operations are done
+        $message = 'Todo (' . $todo->name . ') updated successfully.';
+        session()->flash('success', $message);
+
         //redirect the page to todo-page
         return redirect('/todo');
     }
@@ -118,6 +126,10 @@ class TodoController extends Controller
 
         //delete the selected todo from the database by delete() method
         $todo->delete();
+
+        //  send a flash message to front-end when the update+save operations are done
+        $message = 'Todo (' . $todo->name . ') deleted successfully.';
+        session()->flash('success', $message);
 
         //redirect the page to todo-page
         return redirect('/todo');

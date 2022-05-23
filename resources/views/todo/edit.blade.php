@@ -6,26 +6,11 @@
 
 @section('content')
     <div class="container">
-        <h1 class="text-center my-5">Edit Todo  ({{$todo->name}})</h1>
+        <h1 class="text-center my-3">Edit Todo  ({{$todo->name}})</h1>
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card card-default">
-                    <!-- <div class="card-header">
-                        Edit ToDo
-                    </div> -->
                     <div class="card-body">
-                        @if($errors->any())
-                            <div class="alert alert-danger">
-                                <u class="list-group">
-                                    @foreach($errors->all() as $error)
-                                        <li class="list-group-item">
-                                            {{ $error }}
-                                        </li>
-                                    @endforeach
-                                </u>
-                            </div>
-                        @endif
-
                         <form action="/todo/{{$todo->id}}/update-todo" method="POST">
                             @csrf
                             <label class="form-check-label py-2 fw-bold" for="name">Name</label>
