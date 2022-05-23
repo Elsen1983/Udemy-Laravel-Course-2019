@@ -34,7 +34,7 @@
             <!-- Navbar content -->
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -43,8 +43,25 @@
                 <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <a href="/todo" class="nav-item nav-link">ToDo</a>
-                        <a href="/add-todo" class="nav-item nav-link">Create ToDo</a>
+                        @guest
+                        @else
+                            <li class="nav-item dropdown" id="todoDropDown">
+                                <a href='#' class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ __('ToDo Application') }}
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="todoDropDown">
+                                    <a class="dropdown-item" href='{{route("todo.index")}}'>
+                                        {{ __('View ToDo(s)') }}
+                                    </a>
+                                    <a class="dropdown-item" href='{{route("todo.create")}}'>
+                                        {{ __('Create ToDo') }}
+                                    </a>
+
+
+                                </div>
+                            </li>
+                            <a href="/add-todo" class="nav-item nav-link">CMS Application</a>
+                        @endguest
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -64,11 +81,11 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarUserDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarUserDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">

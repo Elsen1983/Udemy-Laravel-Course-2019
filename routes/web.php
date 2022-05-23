@@ -17,9 +17,9 @@ use App\Http\Controllers\ToDo\ToDoController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 /**
  * This way is not working anymore in new version of Laravel, so instead of it use the example below the comment section.
@@ -28,11 +28,16 @@ Route::get('/', function () {
 
 // Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::get('todo', [ToDoController::class, 'index']);
-Route::get('todo/{todo}', [ToDoController::class, 'show']);
-Route::get('add-todo', [ToDoController::class, 'create']);
-Route::post('save-todo', [ToDoController::class, 'save']);
 
+Auth::routes();
+
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+// TODO APPLICATION ROUTES
+Route::get('todo', [ToDoController::class, 'index'])->name('todo.index');
+Route::get('todo/{todo}', [ToDoController::class, 'show']);
+Route::get('add-todo', [ToDoController::class, 'create'])->name('todo.create');
+Route::post('save-todo', [ToDoController::class, 'save']);
 //for get edit view
 Route::get('todo/{todo}/edit', [TodoController::class, 'edit']);
 //for send the updated form values from edit view
@@ -43,8 +48,4 @@ Route::get('todo/{todo}/delete', [TodoController::class, 'destroy']);
 Route::get('todo/{todo}/deleteByRMB', [TodoController::class, 'destroyWithRouteModelBinding']);
 
 
-Auth::routes();
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// CMS APPLICATION ROUTES
