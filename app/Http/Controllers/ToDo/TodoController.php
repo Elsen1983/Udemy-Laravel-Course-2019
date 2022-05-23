@@ -113,4 +113,13 @@ class TodoController extends Controller
         //redirect the page to todo-page
         return redirect('/todo');
     }
+
+    public function destroyWithRouteModelBinding(Todo $todo){
+
+        //delete the selected todo from the database by delete() method
+        $todo->delete();
+
+        //redirect the page to todo-page
+        return redirect('/todo');
+    }
 }

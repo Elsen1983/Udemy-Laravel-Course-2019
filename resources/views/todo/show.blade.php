@@ -26,7 +26,7 @@
                 </div>
             </div>
             <a href="/todo/{{ $todo->id }}/edit" class="btn btn-info px-4 py-2 mt-2">Edit</a>
-            <a href="/todo/{{ $todo->id }}/delete" class="btn btn-danger px-4 py-2 mt-2">Delete</a>
+            <a href="/todo/{{ $todo->id }}/deleteByRMB" class="btn btn-danger px-4 py-2 mt-2">Delete</a>
             <br><br>
             <h5><a href="/todo">Back to Todos</a></h5>
         </div>

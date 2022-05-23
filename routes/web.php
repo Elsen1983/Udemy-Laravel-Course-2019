@@ -39,6 +39,8 @@ Route::get('todo/{todo}/edit', [TodoController::class, 'edit']);
 Route::post('todo/{todo}/update-todo', [ToDoController::class, 'update']);
 //for delete a todo
 Route::get('todo/{todo}/delete', [TodoController::class, 'destroy']);
+//for delete a todo by Route Model Binding
+Route::get('todo/{todo}/deleteByRMB', [TodoController::class, 'destroyWithRouteModelBinding']);
 
 
 Auth::routes();
