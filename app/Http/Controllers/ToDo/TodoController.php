@@ -19,8 +19,12 @@ class TodoController extends Controller
         return view('todo.index') ->with('todos', $todos);
     }
 
-    public function show($todoId){
-        $todo = Todo::find($todoId);
+    //in this function we used route model binding
+    //we not passing $todoId anymore (like in other functions)
+    //Laravel gives us the data from database by passing 'Todo $todo' as a parameter into the function where dynamic route was used
+    //so we do not need to use 'Todo::find($todoId) ...etc anymore
+    public function show(Todo $todo){
+
         return view('todo.show')->with('todo', $todo);
     }
 
@@ -73,15 +77,38 @@ class TodoController extends Controller
         //get the validated data from the form
         $data = request()->all();
 
+        //if the 'completed' toggle-switch is switched on
+        if (request()->has('completed')) {
+            $data['completed'] = 1;
+        }
+        // else if the 'completed' toggle-switch is switched off
+        else{
+            $data['completed'] = 0;
+        }
+
         //find the specific data in the database (using the passed $todoId for it) by find() method
         $todo = Todo::find($todoId);
 
         //change the selected fields values from the database by the values got from the form
         $todo->name = $data['name'];
         $todo->description = $data['description'];
+        $todo->completed = $data['completed'];
+
 
         //save the updated data back to the database
         $todo->save();
+
+        //redirect the page to todo-page
+        return redirect('/todo');
+    }
+
+    public function destroy($todoId){
+
+        //find the specific data in the database (using the passed $todoId for it) by find() method
+        $todo = Todo::find($todoId);
+
+        //delete the selected todo from the database by delete() method
+        $todo->delete();
 
         //redirect the page to todo-page
         return redirect('/todo');
