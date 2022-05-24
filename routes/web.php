@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ToDo\ToDoController;
 use App\Http\Controllers\CMS\CategoriesController;
+use App\Http\Controllers\CMS\CmsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,3 +57,5 @@ Route::resource('categories', CategoriesController::class);
 //  For all new methods in the Controller we have to add separated routes like below for doSomething() method
 // Route::get('categories/doSomething', [CategoriesController::class, 'doSomething'])->name('categories.doSomething');
 
+// 1 - CMS
+Route::post('/cms', CmsController::class)->name('cms.index');

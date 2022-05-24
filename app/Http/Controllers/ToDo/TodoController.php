@@ -15,7 +15,7 @@ class TodoController extends Controller
         //fetching the values from the todos table in database
         $todos = Todo::all();
 
-        // return the view (index.blade.php) from the views/about folder for router AND
+        // return the view (index.blade.php) from the views folder for router AND all todo from database
         return view('todo.index') ->with('todos', $todos);
     }
 
