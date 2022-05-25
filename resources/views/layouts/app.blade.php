@@ -51,16 +51,34 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="todoDropDown">
                                     <a class="dropdown-item" href='{{route("todo.index")}}'>
-                                        {{ __('View ToDo(s)') }}
+                                        {{ __('ToDo`s - Home') }}
+                                    </a>
+                                    <a class="dropdown-item" href='{{route("todo.view")}}'>
+                                        {{ __('ToDo(s) - View') }}
                                     </a>
                                     <a class="dropdown-item" href='{{route("todo.create")}}'>
-                                        {{ __('Create ToDo') }}
+                                        {{ __('ToDo - Create') }}
                                     </a>
 
 
                                 </div>
                             </li>
-                            <a href="/add-todo" class="nav-item nav-link">CMS Application</a>
+                            <li class="nav-item dropdown" id="cmsDropDown">
+                                <a href='#' class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ __('CMS Application') }}
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="cmsDropDown">
+                                    <a class="dropdown-item" href='{{ route("cms.index")}}'>
+                                        {{ __('Posts') }}
+                                    </a>
+                                    <a class="dropdown-item" href='{{route("cms.index")}}'>
+                                        {{ __('Categories') }}
+                                    </a>
+
+
+                                </div>
+                            </li>
+
                         @endguest
                     </ul>
 

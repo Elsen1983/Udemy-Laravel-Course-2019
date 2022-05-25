@@ -12,11 +12,7 @@ class TodoController extends Controller
     //
     public function index(){
 
-        //fetching the values from the todos table in database
-        $todos = Todo::all();
-
-        // return the view (index.blade.php) from the views folder for router AND all todo from database
-        return view('todo.index') ->with('todos', $todos);
+        return view('todo.index');
     }
 
     //in this function we used route model binding
@@ -31,6 +27,14 @@ class TodoController extends Controller
     public function create(){
         return view('todo.create');
 
+    }
+
+    public function showAll(){
+        //fetching the values from the todos table in database
+        $todos = Todo::all();
+
+        // return the view (index.blade.php) from the views folder for router AND all todo from database
+        return view('todo.view') ->with('todos', $todos);
     }
 
     public function save(){
@@ -60,7 +64,7 @@ class TodoController extends Controller
         // dd($todo);
 
         // redirect the route back to the todo view/page
-        return redirect('/todo');
+        return redirect('/todos');
 
     }
 
@@ -107,7 +111,7 @@ class TodoController extends Controller
         session()->flash('success', $message);
 
         //redirect the page to todo-page
-        return redirect('/todo');
+        return redirect('/todos');
     }
 
     public function destroy($todoId){
@@ -119,7 +123,7 @@ class TodoController extends Controller
         $todo->delete();
 
         //redirect the page to todo-page
-        return redirect('/todo');
+        return redirect('/todos');
     }
 
     public function destroyWithRouteModelBinding(Todo $todo){
@@ -132,6 +136,6 @@ class TodoController extends Controller
         session()->flash('success', $message);
 
         //redirect the page to todo-page
-        return redirect('/todo');
+        return redirect('/todos');
     }
 }

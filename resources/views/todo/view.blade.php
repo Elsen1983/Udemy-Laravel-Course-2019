@@ -14,10 +14,18 @@
                         Todos
                     </div>
                     <div class="card-body">
-
+                        <ul class="list-group">
+                            @foreach($todos as $todo)
+                                <li class="list-group-item">
+                                    {{ $todo->name }}
+                                    <a href="/todo/{{ $todo->id }}" class="btn btn-primary btn-small p-1" style="float:right;">View</a>
+                                </li>
+                            @endforeach
+                        </ul>
                     </div>
                 </div>
                 <br>
+                <h5 class=""><a href='{{ route("todo.index") }}'>ToDo Page</a></h5>
             </div>
         </div>
     </div>

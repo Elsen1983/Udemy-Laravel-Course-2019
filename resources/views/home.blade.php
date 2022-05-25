@@ -25,7 +25,7 @@
                             </a>
                         </h3>
                         <h3>
-                        <a href='{{ route("todo.index") }}'>
+                        <a href='{{ route("cms.index") }}'>
                                 {{ __('CMS Application') }}
                             </a>
                         </h3>

@@ -30,7 +30,7 @@
 
                 </div>
                 <br>
-                <h5 class=""><a href="/">Landing Page</a></h5>
+                <h5 class=""><a href='{{ route("todo.index") }}'>ToDo Page</a></h5>
             </div>
         </div>
     </div>

@@ -39,7 +39,7 @@
 
                 </div>
                 <br>
-                <h5><a href="/todo">Back to Todos</a></h5>
+                <h5 class=""><a href='{{ route("todo.index") }}'>ToDo Page</a></h5>
             </div>
         </div>
     </div>

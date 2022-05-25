@@ -37,15 +37,16 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // TODO APPLICATION ROUTES
 Route::get('todo', [ToDoController::class, 'index'])->name('todo.index');
-Route::get('todo/{todo}', [ToDoController::class, 'show']);
+Route::get('todos', [ToDoController::class, 'showAll'])->name('todo.view');
+Route::get('todo/{todo}', [ToDoController::class, 'show'])->name('todo.show');;
 Route::get('add-todo', [ToDoController::class, 'create'])->name('todo.create');
-Route::post('save-todo', [ToDoController::class, 'save']);
+Route::post('save-todo', [ToDoController::class, 'save'])->name('todo.save');;
 //for get edit view
-Route::get('todo/{todo}/edit', [TodoController::class, 'edit']);
+Route::get('todo/{todo}/edit', [TodoController::class, 'edit'])->name('todo.edit');;
 //for send the updated form values from edit view
-Route::post('todo/{todo}/update-todo', [ToDoController::class, 'update']);
+Route::post('todo/{todo}/update-todo', [ToDoController::class, 'update'])->name('todo.update');;
 //for delete a todo
-Route::get('todo/{todo}/delete', [TodoController::class, 'destroy']);
+Route::get('todo/{todo}/delete', [TodoController::class, 'destroy'])->name('todo.destroy');;
 //for delete a todo by Route Model Binding
 Route::get('todo/{todo}/deleteByRMB', [TodoController::class, 'destroyWithRouteModelBinding']);
 
@@ -58,4 +59,4 @@ Route::resource('categories', CategoriesController::class);
 // Route::get('categories/doSomething', [CategoriesController::class, 'doSomething'])->name('categories.doSomething');
 
 // 1 - CMS
-Route::post('/cms', CmsController::class)->name('cms.index');
+Route::get('/cms', CmsController::class)->name('cms.index');
