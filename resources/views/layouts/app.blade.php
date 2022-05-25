@@ -51,10 +51,10 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="todoDropDown">
                                     <a class="dropdown-item" href='{{route("todo.index")}}'>
-                                        {{ __('ToDo`s - Home') }}
+                                        {{ __('ToDo - Home') }}
                                     </a>
                                     <a class="dropdown-item" href='{{route("todo.view")}}'>
-                                        {{ __('ToDo(s) - View') }}
+                                        {{ __('ToDo - View') }}
                                     </a>
                                     <a class="dropdown-item" href='{{route("todo.create")}}'>
                                         {{ __('ToDo - Create') }}
@@ -68,11 +68,14 @@
                                 {{ __('CMS Application') }}
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="cmsDropDown">
-                                    <a class="dropdown-item" href='{{ route("cms.index")}}'>
-                                        {{ __('Posts') }}
+                                <a class="dropdown-item" href='{{route("cms.index")}}'>
+                                        {{ __('CMS - Home') }}
                                     </a>
-                                    <a class="dropdown-item" href='{{route("cms.index")}}'>
-                                        {{ __('Categories') }}
+                                    <a class="dropdown-item" href='{{ route("cms.index")}}'>
+                                        {{ __('CMS - Posts') }}
+                                    </a>
+                                    <a class="dropdown-item" href='{{route("categories.index")}}'>
+                                        {{ __('CMS - Categories') }}
                                     </a>
 
 

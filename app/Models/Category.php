@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
+
+    /**
+     * The attribute(s) that is/are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = ['name'];
 }

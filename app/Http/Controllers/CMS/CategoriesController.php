@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\CMS;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
@@ -15,7 +16,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        return view('cms.categories');
+        return view('cms.categories.index');
     }
 
     /**
@@ -25,7 +26,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        //
+        return view('cms.categories.create');
     }
 
     /**
@@ -36,7 +37,15 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name' => 'required|unique:categories'
+        ]);
+
+        Category::create([
+            'name' => $request->name
+        ]);
+
+        return redirect(route('categories.index'));
     }
 
     /**

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Create Todo
+    Edit Todo
 @endsection
 
 @section('content')

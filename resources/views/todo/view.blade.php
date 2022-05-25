@@ -16,9 +16,9 @@
                     <div class="card-body">
                         <ul class="list-group">
                             @foreach($todos as $todo)
-                                <li class="list-group-item">
-                                    {{ $todo->name }}
-                                    <a href="/todo/{{ $todo->id }}" class="btn btn-primary btn-small p-1" style="float:right;">View</a>
+                                <li class="list-group-item d-flex justify-content-between">
+                                    <span class="py-2">{{ $todo->name }}</span>
+                                    <a href="/todo/{{ $todo->id }}" class="btn btn-primary btn-small px-4 py-2">View</a>
                                 </li>
                             @endforeach
                         </ul>
