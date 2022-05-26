@@ -41,9 +41,8 @@ class CategoriesController extends Controller
      * @param  App\Http\Requests\CreateCategoryRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateCategoryRequest $request)
-    {
-
+    public function store(CreateCategoryRequest $request){
+        //  validation is moved to CreateCategoryRequest rules() method
         Category::create([
             'name' => $request->name
         ]);
