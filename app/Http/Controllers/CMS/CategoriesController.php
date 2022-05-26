@@ -4,6 +4,7 @@ namespace App\Http\Controllers\CMS;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 
@@ -20,7 +21,7 @@ class CategoriesController extends Controller
         $categories = Category::all();
 
         // return the categories view (index.blade.php) from the views folder for router AND all categories from database
-        return view('cms.categories.index') ->with('categories', $categories);
+        return view('cms.categories.index')->with('categories', $categories);
     }
 
     /**
@@ -64,7 +65,7 @@ class CategoriesController extends Controller
      */
     public function show($id)
     {
-        //
+        Log::debug('blaaaa');
     }
 
     /**
@@ -93,12 +94,13 @@ class CategoriesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param $category
      * @return \Illuminate\Http\Response
      */
     public function destroy(Category $category)
     {
-
+        Log::debug('destroy called');
+        Log::debug($category);
         //delete the selected category from the database by delete() method
         $category->delete();
 
@@ -106,7 +108,7 @@ class CategoriesController extends Controller
         $message = 'Category (' . $category->name . ') deleted successfully.';
         session()->flash('success', $message);
 
-        return redirect(route("categories.index"));
+        return redirect()->back();
     }
 
      /**
