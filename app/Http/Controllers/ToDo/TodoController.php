@@ -59,7 +59,7 @@ class TodoController extends Controller
         $todo->save();
 
         //  send a flash message to front-end when the save operation is done
-        $message = $message = 'Todo (' . $todo->name . ') saved successfully.';
+        $message = 'Todo (' . $todo->name . ') saved successfully.';
         session()->flash('success', $message);
         // dd($todo);
 

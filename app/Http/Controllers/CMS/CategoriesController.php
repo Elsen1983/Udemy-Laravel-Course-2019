@@ -16,7 +16,11 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        return view('cms.categories.index');
+        //fetching the values from the todos table in database
+        $categories = Category::all();
+
+        // return the categories view (index.blade.php) from the views folder for router AND all categories from database
+        return view('cms.categories.index') ->with('categories', $categories);
     }
 
     /**
@@ -44,6 +48,10 @@ class CategoriesController extends Controller
         Category::create([
             'name' => $request->name
         ]);
+
+        //  send a flash message to front-end when the save operation is done
+        $message = $message = 'Category (' . $request->name . ') created successfully.';
+        session()->flash('success', $message);
 
         return redirect(route('categories.index'));
     }
