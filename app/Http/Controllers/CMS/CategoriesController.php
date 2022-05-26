@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
+use App\Http\Requests\CreateCategoryRequest;
 
 class CategoriesController extends Controller
 {
@@ -37,14 +38,11 @@ class CategoriesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Requests\CreateCategoryRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateCategoryRequest $request)
     {
-        $this->validate($request,[
-            'name' => 'required|unique:categories'
-        ]);
 
         Category::create([
             'name' => $request->name
@@ -99,8 +97,8 @@ class CategoriesController extends Controller
      */
     public function destroy(Category $category)
     {
-        Log::debug('destroy called');
-        Log::debug($category);
+        // Log::debug('destroy called');
+        // Log::debug($category);
         //delete the selected category from the database by delete() method
         $category->delete();
 
