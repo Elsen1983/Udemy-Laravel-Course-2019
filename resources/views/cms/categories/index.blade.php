@@ -12,19 +12,20 @@
                 <div class="card card-default">
                     <div class="card-header">{{ __('Categories') }}</div>
                     <div class="card-body">
-                    <ul class="list-group">
+                        <ul class="list-group">
                             @foreach($categories as $category)
                                 <li class="list-group-item d-flex justify-content-between">
                                     <span class="py-2">{{ $category->name }}</span>
+                                    <a href="/categories/{{ $category->id }}/delete" class="btn btn-danger">Delete</a>
                                 </li>
                             @endforeach
                         </ul>
+                        <div class="d-flex justify-content-start mt-2">
+                            <a href='{{ route("categories.create")}}' class="btn btn-success"> Add New Category</a>
+                        </div>
                     </div>
                 </div>
-                <div class="d-flex justify-content-start mt-2">
 
-                    <a href='{{ route("categories.create")}}' class="btn btn-success"> Add New Category</a>
-                </div>
             </div>
         </div>
     </div>

@@ -96,9 +96,17 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-        //
+
+        //delete the selected category from the database by delete() method
+        $category->delete();
+
+        //  send a flash message to front-end when the delete operation is done
+        $message = 'Category (' . $category->name . ') deleted successfully.';
+        session()->flash('success', $message);
+
+        return redirect(route("categories.index"));
     }
 
      /**
