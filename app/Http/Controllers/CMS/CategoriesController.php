@@ -71,9 +71,11 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Category $category)
     {
-        //
+        //  instead of creating/using a new view (like did for ToDos) for edit category we return the create view
+        //  and passing a named argument (the currently selected category itself) to this view
+        return view('categories.create')->with('category', $category);
     }
 
     /**
