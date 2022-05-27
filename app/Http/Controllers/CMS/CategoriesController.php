@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
-use App\Http\Requests\CreateCategoryRequest;
+use App\Http\Requests\Categories\CreateCategoryRequest;
 
 class CategoriesController extends Controller
 {
@@ -38,7 +38,7 @@ class CategoriesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  App\Http\Requests\CreateCategoryRequest  $request
+     * @param  App\Http\Requests\Categories\CreateCategoryRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(CreateCategoryRequest $request){
