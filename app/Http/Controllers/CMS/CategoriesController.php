@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\Categories\CreateCategoryRequest;
+use App\Http\Requests\Categories\UpdateCategoryRequest;
 
 class CategoriesController extends Controller
 {
@@ -75,7 +76,7 @@ class CategoriesController extends Controller
     {
         //  instead of creating/using a new view (like did for ToDos) for edit category we return the create view
         //  and passing a named argument (the currently selected category itself) to this view
-        return view('categories.create')->with('category', $category);
+        return view('cms.categories.create')->with('category', $category);
     }
 
     /**
@@ -85,9 +86,9 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateCategoryRequest $request, Category $category)
     {
-        //
+
     }
 
     /**

@@ -16,7 +16,11 @@
                             @foreach($categories as $category)
                                 <li class="list-group-item d-flex justify-content-between">
                                     <span class="py-2">{{ $category->name }}</span>
-                                    <a href='{{ route("categories.destroy", [$category]) }}' class="btn btn-danger">Delete</a>
+                                    <div id="category_btns">
+                                        <a href='{{ route("categories.edit", $category) }}' class="btn btn-primary">Edit</a>
+                                        <a href='{{ route("categories.destroy", $category) }}' class="btn btn-danger">Delete</a>
+                                    </div>
+
                                 </li>
                             @endforeach
                         </ul>
