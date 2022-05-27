@@ -88,7 +88,13 @@ class CategoriesController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
+        Log::debug('Update called');
+        Log::debug($category);
+        $category->name = $request->name;
 
+        $category->save();
+
+        return redirect(route('categories.index'));
     }
 
     /**

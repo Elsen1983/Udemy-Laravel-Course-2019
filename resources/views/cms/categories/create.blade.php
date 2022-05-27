@@ -11,12 +11,16 @@
             <div class="col-md-8">
 
                 <div class="card card-default">
-                        <div class="card-header">{{ isset($category) ? __('Edit Category') : __('Add New Category') }}</div>
+                        <div class="card-header">{{ isset($category) ? __('Edit Category') : __('Create New Category') }}</div>
                     <div class="card-body">
                         <!-- Form Start -->
-                        <form action='{{ isset($category) ? route("categories.update", $category) : route("categories.store") }}'
-                                method='{{ isset($category) ? "PUT" : "POST" }}'>
+                        <form action=' {{ isset($category) ? route("categories.update", $category) : route("categories.store") }}'
+                                method="POST">
                             @csrf
+                            <!-- IMPORTANT TO USE THE WAY BELOW FOR CHANGE THE TYPE OF THE METHOD OF THE FORM INSTEAD USE INLINE CODE LIKE FOR ACTION='' -->
+                            @if(isset($category))
+                                @method('PUT')
+                            @endif
                             <div class="form-group">
                                 <label for="category_name">{{ __('Name') }}</label>
                                 <input type="text" class="form-control" id="category_name" name="name" value="{{ isset($category) ? __($category->name) : '' }}">
