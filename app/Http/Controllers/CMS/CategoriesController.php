@@ -100,7 +100,7 @@ class CategoriesController extends Controller
         $category->save();
 
         //  send a flash message to front-end when the save operation is done
-        $message = 'Category updated ( from ' .$categoryNameOld . ' to ' . $request->name . ') successfully.';
+        $message = 'Category updated ( from ' .$categoryNameOld . ' to ' . $request->name . ' ) successfully.';
         session()->flash('success', $message);
 
         return redirect(route('categories.index'));
