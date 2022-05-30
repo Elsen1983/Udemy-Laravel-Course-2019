@@ -72,7 +72,7 @@
                                 <a class="dropdown-item" href='{{route("cms.index")}}'>
                                         {{ __('CMS - Home') }}
                                     </a>
-                                    <a class="dropdown-item" href='{{ route("cms.index")}}'>
+                                    <a class="dropdown-item" href='{{ route("posts.index")}}'>
                                         {{ __('CMS - Posts') }}
                                     </a>
                                     <a class="dropdown-item" href='{{route("categories.index")}}'>

@@ -19,7 +19,7 @@
                                     <div id="category_btns">
                                         <a href='{{ route("categories.edit", $category) }}' class="btn btn-primary">Edit</a>
                                         <!-- <a href='{{ route("categories.destroy", $category) }}' class="btn btn-danger">Delete</a> -->
-                                        <button class="btn btn-danger" onclick="handleDelete( {{ $category }}, 'deleteCategoryModal')">Delete</button>
+                                        <button class="btn btn-danger" onclick="handleDeleteCategory( {{ $category }}, 'deleteCategoryModal')">Delete</button>
                                     </div>
                                 </li>
                             @endforeach

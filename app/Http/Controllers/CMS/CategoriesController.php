@@ -19,7 +19,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        //fetching the values from the todos table in database
+        //fetching the values from the categories table in database
         $categories = Category::all();
 
         // return the categories view (index.blade.php) from the views folder for router AND all categories from database

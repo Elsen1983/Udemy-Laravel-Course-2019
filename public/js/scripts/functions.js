@@ -1,7 +1,7 @@
 /**
  * By this function we opening a targeted Modal and when the user confirm that then we delete the category
  */
-function handleDelete(elem, modalName){
+function handleDeleteCategory(elem, modalName){
     console.log('handleDelete called on ' + elem.name);
     console.log(modalName);
 
