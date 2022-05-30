@@ -126,7 +126,7 @@ class CategoriesController extends Controller
         return redirect()->back();
     }
 
-     /**
+    /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
