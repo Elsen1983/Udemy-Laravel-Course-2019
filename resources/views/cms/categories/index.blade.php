@@ -18,7 +18,8 @@
                                     <span class="py-2">{{ $category->name }}</span>
                                     <div id="category_btns">
                                         <a href='{{ route("categories.edit", $category) }}' class="btn btn-primary">Edit</a>
-                                        <a href='{{ route("categories.destroy", $category) }}' class="btn btn-danger">Delete</a>
+                                        <!-- <a href='{{ route("categories.destroy", $category) }}' class="btn btn-danger">Delete</a> -->
+                                        <button class="btn btn-danger" onclick="handleDelete()">Delete</button>
                                     </div>
 
                                 </li>
@@ -33,4 +34,8 @@
             </div>
         </div>
     </div>
+@endsection
+
+{{-- custom scripts --}}
+@section('scripts')
 @endsection

@@ -150,6 +150,9 @@
             @yield('content')
         </main>
     </div>
+    <script></script>
+    {{-- include custom scripts --}}
+    @include('panels/scripts')
 </body>
 </html>
 
