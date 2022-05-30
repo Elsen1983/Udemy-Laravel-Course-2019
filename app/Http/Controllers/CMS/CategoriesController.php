@@ -49,7 +49,7 @@ class CategoriesController extends Controller
         ]);
 
         //  send a flash message to front-end when the save operation is done
-        $message = $message = 'Category (' . $request->name . ') created successfully.';
+        $message = 'Category (' . $request->name . ') created successfully.';
         session()->flash('success', $message);
 
         return redirect(route('categories.index'));
@@ -88,11 +88,20 @@ class CategoriesController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        Log::debug('Update called');
-        Log::debug($category);
-        $category->name = $request->name;
+        // Log::debug('Update called');
+        // Log::debug($category);
+
+        $categoryNameOld = $category->name;
+
+        $category->update([
+            'name' => $request->name
+        ]);
 
         $category->save();
+
+        //  send a flash message to front-end when the save operation is done
+        $message = 'Category updated ( from ' .$categoryNameOld . ' to ' . $request->name . ') successfully.';
+        session()->flash('success', $message);
 
         return redirect(route('categories.index'));
     }
