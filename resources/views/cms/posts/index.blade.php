@@ -9,6 +9,7 @@
         <h1 class="text-center my-3">Posts</h1>
         <div class="row justify-content-center">
             <div class="col-md-8">
+
                 <div class="card card-default">
                     <div class="card-header">{{ __('Posts') }}</div>
                     <div class="card-body">
@@ -23,12 +24,12 @@
                                 </li>
                             @endforeach
                         </ul>
-                        <div class="d-flex justify-content-start mt-2">
-                            <a href='{{ route("posts.create")}}' class="btn btn-success"> Add New Post</a>
-                        </div>
                     </div>
                 </div>
 
+                <div class="d-flex justify-content-start mt-2">
+                    <a href='{{ route("posts.create")}}' class="btn btn-success"> Add New Post</a>
+                </div>
             </div>
         </div>
 
@@ -54,7 +55,6 @@
                 </form>
             </div>
         </div>
-
     </div>
 @endsection
 

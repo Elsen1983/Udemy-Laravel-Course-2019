@@ -22,10 +22,28 @@
                                 @method('PUT')
                             @endif
                             <div class="form-group">
-                                <label for="post_name">{{ __('Name') }}</label>
-                                <input type="text" class="form-control" id="post_name" name="name" value="{{ isset($post) ? __($post->name) : '' }}">
+                                <label for="post_title">{{ __('Title') }}</label>
+                                <input type="text" class="form-control" id="post_title" name="title" value="{{ isset($post) ? __($post->title) : '' }}">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group pt-2">
+                                <label for="post_description">{{ __('Description') }}</label>
+                                <textarea type="text" class="form-control" id="post_description" name="description" value="{{ isset($post) ? __($post->description) : '' }}"
+                                            rows="3" cols="50" maxlength="200"></textarea>
+                            </div>
+                            <div class="form-group pt-2">
+                                <label for="post_content">{{ __('Content') }}</label>
+                                <textarea type="text" class="form-control" id="post_content" name="content" value="{{ isset($post) ? __($post->content) : '' }}"
+                                            rows="3" cols="50" maxlength="200"></textarea>
+                            </div>
+                            <div class="form-group pt-2">
+                                <label for="post_published_at">{{ __('Published At') }}</label>
+                                <input type="text" class="form-control" id="post_published_at" name="image" value="{{ isset($post) ? __($post->published-at) : '' }}">
+                            </div>
+                            <div class="form-group pt-2">
+                                <label for="post_image">{{ __('Image') }}</label>
+                                <input type="file" class="form-control" id="post_content" name="image" value="{{ isset($post) ? __($post->image) : '' }}">
+                            </div>
+                            <div class="form-group pt-3">
                                 <div class="my-2">
                                     <button class="btn btn-success">{{ isset($post) ? __('Update Post') : __('Add Post') }}</button>
                                 </div>

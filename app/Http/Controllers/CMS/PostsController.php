@@ -43,9 +43,20 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreatePostRequest $request, Post $post)
     {
-        //
+        Post::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'content' => $request->content,
+            'image' => $request->image,
+        ]);
+
+        //  send a flash message to front-end when the save operation is done
+        $message = 'Post (' . $request->title . ') created successfully.';
+        session()->flash('success', $message);
+
+        return redirect(route('posts.index'));
     }
 
     /**

@@ -27,7 +27,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="my-2">
-                                    <button class="btn btn-success">{{ isset($category) ? __('Update Category') : __('Add Category') }}</button>
+                                    <button type="submit" class="btn btn-success">{{ isset($category) ? __('Update Category') : __('Add Category') }}</button>
                                 </div>
                             </div>
                         </form>
