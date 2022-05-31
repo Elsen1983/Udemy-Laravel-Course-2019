@@ -47,14 +47,15 @@ class PostsController extends Controller
     {
         //  upload the image to the public storage (need change the .env file to save to app/storage/app/public/posts folder for use the image on the website later on)
             //  change .env file --> add FILESYSTEM_DRIVER=public
-        $image = $request->image->store('posts');
+        $image = $request->image->store('posts', ['disk' => 'public']);
 
+        // dd($request->image);
         //  create the post (do not forget add protected fillable array into the Post model)
         Post::create([
             'title' => $request->title,
             'description' => $request->description,
             'content' => $request->content,
-            'image' => $request->image,
+            'image' => $image,
             'published_at' => $request->published_at
         ]);
 
@@ -82,9 +83,11 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        //
+        //  instead of creating/using a new view (like did for ToDos) for edit posts we return the create view
+        //  and passing a named argument (the currently selected post itself) to this view
+        return view('cms.posts.create')->with('post', $post);
     }
 
     /**

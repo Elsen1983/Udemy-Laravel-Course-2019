@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="container">
-        <h1 class="text-center my-3">{{ isset($post) ? 'Edit Post ( ' . $post->name . ' )' : __('Create Post') }}</h1>
+        <h1 class="text-center my-3">{{ isset($post) ? 'Edit Post ( ' . $post->title . ' )' : __('Create Post') }}</h1>
         <div class="row justify-content-center">
             <div class="col-md-8">
 
@@ -27,17 +27,17 @@
                             </div>
                             <div class="form-group pt-2">
                                 <label for="post_description">{{ __('Description') }}</label>
-                                <textarea type="text" class="form-control" id="post_description" name="description" value="{{ isset($post) ? __($post->description) : '' }}"
-                                            rows="3" cols="50" maxlength="200"></textarea>
+                                <textarea type="text" class="form-control" id="post_description" name="description"
+                                            rows="3" cols="50" maxlength="200">{{ isset($post) ? __($post->description) : '' }}</textarea>
                             </div>
                             <div class="form-group pt-2">
                                 <label for="post_content">{{ __('Content') }}</label>
-                                <textarea type="text" class="form-control" id="post_content" name="content" value="{{ isset($post) ? __($post->content) : '' }}"
-                                            rows="3" cols="50" maxlength="200"></textarea>
+                                <textarea type="text" class="form-control" id="post_content" name="content"
+                                            rows="3" cols="50" maxlength="200">{{ isset($post) ? __($post->content) : '' }}</textarea>
                             </div>
                             <div class="form-group pt-2">
                                 <label for="post_published_at">{{ __('Published At') }}</label>
-                                <input type="text" class="form-control" id="post_published_at" name="published_at" value="{{ isset($post) ? __($post->published_at) :  now()->toDateTimeString()  }}">
+                                <input type="text" class="form-control" id="post_published_at" name="published_at" value="{{ isset($post) ? __($post->published_at) :  now()->toDateTimeString()  }}" disabled >
                             </div>
                             <div class="form-group pt-2">
                                 <label for="post_image">{{ __('Image') }}</label>

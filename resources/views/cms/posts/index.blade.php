@@ -16,7 +16,7 @@
                         <ul class="list-group">
                             @foreach($posts as $post)
                                 <li class="list-group-item d-flex justify-content-between">
-                                    <span class="py-2">{{ $post->name }}</span>
+                                    <span class="py-2">{{ $post->title }}</span>
                                     <div id="post_btns">
                                         <a href='{{ route("posts.edit", $post) }}' class="btn btn-primary">Edit</a>
                                         <button class="btn btn-danger" onclick="handleDeletePost( {{ $post }}, 'deletePostModal')">Delete</button>
