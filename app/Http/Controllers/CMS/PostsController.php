@@ -45,11 +45,17 @@ class PostsController extends Controller
      */
     public function store(CreatePostRequest $request, Post $post)
     {
+        //  upload the image to the public storage (need change the .env file to save to app/storage/app/public/posts folder for use the image on the website later on)
+            //  change .env file --> add FILESYSTEM_DRIVER=public
+        $image = $request->image->store('posts');
+
+        //  create the post (do not forget add protected fillable array into the Post model)
         Post::create([
             'title' => $request->title,
             'description' => $request->description,
             'content' => $request->content,
             'image' => $request->image,
+            'published_at' => $request->published_at
         ]);
 
         //  send a flash message to front-end when the save operation is done
