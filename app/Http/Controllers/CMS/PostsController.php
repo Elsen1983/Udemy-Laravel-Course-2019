@@ -45,8 +45,8 @@ class PostsController extends Controller
      */
     public function store(CreatePostRequest $request)
     {
-        //  upload the image to the public storage (need change the .env file to save to app/storage/app/public/posts folder for use the image on the website later on)
-            //  change .env file --> add FILESYSTEM_DRIVER=public
+        //  upload the image to the public storage
+        //  with ['disk' => 'public'] we point to public folder in the filesystem config file, so we DO NOT have to change the FILESYSTEM-DRIVER to public anymore
         $image = $request->image->store('posts', ['disk' => 'public']);
 
         // dd($request->image);
@@ -93,23 +93,48 @@ class PostsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Requests\Posts\UpdatePostRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdatePostRequest $request, Post $post)
     {
-        //
+        $postNameOld = $post->title;
+
+        $post->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'content' => $request->content,
+            'image' => $request->image,
+            'published_at' => $request->published_at
+        ]);
+
+        $post->save();
+
+        //  send a flash message to front-end when the save operation is done
+        $message = 'Post updated ( from ' .$postNameOld . ' to ' . $request->title . ' ) successfully.';
+        session()->flash('success', $message);
+
+        return redirect(route('categories.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+
+        Log::debug($post);
+         //delete the selected category from the database by delete() method
+         $post->delete();
+
+         //  send a flash message to front-end when the delete operation is done
+         $message = 'Post (' . $post->title . ') deleted successfully.';
+         session()->flash('success', $message);
+
+         return redirect()->back();
     }
 }

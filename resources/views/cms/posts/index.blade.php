@@ -19,7 +19,7 @@
                                     <span class="py-2">{{ $post->title }}</span>
                                     <div id="post_btns">
                                         <a href='{{ route("posts.edit", $post) }}' class="btn btn-primary">Edit</a>
-                                        <button class="btn btn-danger" onclick="handleDeletePost( {{ $post }}, 'deletePostModal')">Delete</button>
+                                        <button class="btn btn-danger" onclick="handleDelete( '{{ $post->id }}', '{{ $post->title }}','deletePostModal', 'deletePostName', 'deletePostForm',  'posts' )">Delete</button>
                                     </div>
                                 </li>
                             @endforeach
