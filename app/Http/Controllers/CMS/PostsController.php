@@ -43,7 +43,7 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreatePostRequest $request, Post $post)
+    public function store(CreatePostRequest $request)
     {
         //  upload the image to the public storage (need change the .env file to save to app/storage/app/public/posts folder for use the image on the website later on)
             //  change .env file --> add FILESYSTEM_DRIVER=public

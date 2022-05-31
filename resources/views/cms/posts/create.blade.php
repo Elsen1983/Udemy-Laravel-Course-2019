@@ -15,7 +15,7 @@
                     <div class="card-body">
                         <!-- Form Start -->
                         <form action=' {{ isset($post) ? route("posts.update", $post) : route("posts.store") }}'
-                                method="POST">
+                            enctype="multipart/form-data" method="POST">
                             @csrf
                             <!-- IMPORTANT TO USE THE WAY BELOW FOR CHANGE THE TYPE OF THE METHOD OF THE FORM INSTEAD USE INLINE CODE LIKE FOR ACTION='' -->
                             @if(isset($post))
@@ -37,11 +37,11 @@
                             </div>
                             <div class="form-group pt-2">
                                 <label for="post_published_at">{{ __('Published At') }}</label>
-                                <input type="text" class="form-control" id="post_published_at" name="image" value="{{ isset($post) ? __($post->published-at) : '' }}">
+                                <input type="text" class="form-control" id="post_published_at" name="published_at" value="{{ isset($post) ? __($post->published_at) :  now()->toDateTimeString()  }}">
                             </div>
                             <div class="form-group pt-2">
                                 <label for="post_image">{{ __('Image') }}</label>
-                                <input type="file" class="form-control" id="post_content" name="image" value="{{ isset($post) ? __($post->image) : '' }}">
+                                <input type="file" class="form-control" id="post_image" name="image" value="{{ isset($post) ? __($post->image) : '' }}">
                             </div>
                             <div class="form-group pt-3">
                                 <div class="my-2">
